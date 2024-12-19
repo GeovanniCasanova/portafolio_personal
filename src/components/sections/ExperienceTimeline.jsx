@@ -57,19 +57,25 @@ const ExperienceTimeline = () => {
         </motion.h2>
 
         <div className="relative">
-          {/* Línea vertical de la timeline */}
-          <div className="absolute left-4 md:left-1/2 h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"></div>
+          {/* Línea vertical de la timeline - Solo visible en desktop */}
+          <div className="hidden md:block absolute left-1/2 h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"></div>
+
+          {/* Línea vertical para móvil */}
+          <div className="md:hidden absolute left-8 h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500"></div>
 
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className={`relative mb-12 md:mb-20 ${
+              className={`relative mb-12 md:mb-20 pl-16 md:pl-0 ${
                 index % 2 === 0 ? "md:pr-1/2" : "md:pl-1/2 md:ml-auto"
               }`}
             >
+              {/* Círculo indicador en la línea del tiempo */}
+              <div className="absolute left-6 md:left-1/2 transform md:translate-x-[-50%] -translate-y-1/2 w-4 h-4 bg-purple-500 rounded-full border-2 border-white"></div>
+
               <div className="flex items-center mb-4">
                 <div className="flex items-center space-x-2">
                   <Calendar className="w-5 h-5 text-purple-400" />
