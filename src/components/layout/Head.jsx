@@ -7,8 +7,7 @@ const Head = () => {
     const siteUrl = "https://geovannicasanova.github.io/portafolio_personal";
 
     // Imagen por defecto para compartir (asegúrate de que esta imagen exista en tu proyecto)
-    const defaultImage = `${siteUrl}/preview.svg`;
-    // Configuración de meta tags
+    const defaultImage = `${siteUrl}/portafolio_personal/preview.svg`;
     const metaTags = [
       // Meta tags básicos
       {
@@ -72,6 +71,23 @@ const Head = () => {
         name: "twitter:image",
         content: defaultImage,
       },
+      {
+        property: "og:site_name",
+        content: "Geovanni Casanova Portfolio",
+      },
+      {
+        property: "og:locale",
+        content: "es_ES",
+      },
+      {
+        property: "og:title",
+        content: "Geovanni Casanova | Desarrollador Full Stack",
+      },
+      {
+        property: "og:description",
+        content:
+          "Portafolio profesional mostrando proyectos innovadores en desarrollo web y móvil.",
+      },
       // Meta tags adicionales
       {
         name: "theme-color",
@@ -119,7 +135,7 @@ const Head = () => {
     const faviconLink = document.createElement("link");
     faviconLink.rel = "icon";
     faviconLink.type = "image/svg+xml";
-    faviconLink.href = "/favicon.svg";
+    faviconLink.href = "/portafolio_personal/favicon.svg";
     document.head.appendChild(faviconLink);
   }, []);
 
