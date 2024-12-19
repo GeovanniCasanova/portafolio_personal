@@ -3,20 +3,31 @@ import { useEffect } from "react";
 
 const Head = () => {
   useEffect(() => {
-    // Actualizar meta tags dinámicamente
-    document.title = "Geovanni Casanova | Desarrollador Full Stack";
+    // URL base del sitio
+    const siteUrl = "https://geovannicasanova.github.io/portafolio_personal";
 
-    // Meta tags principales
+    // Imagen por defecto para compartir (asegúrate de que esta imagen exista en tu proyecto)
+    const defaultImage = `${siteUrl}/preview.svg`;
+    // Configuración de meta tags
     const metaTags = [
+      // Meta tags básicos
+      {
+        name: "title",
+        content: "Geovanni Casanova | Desarrollador Full Stack",
+      },
       {
         name: "description",
         content:
-          "Desarrollador Full Stack especializado en React, Angular y desarrollo web moderno. Experiencia en implementación de soluciones tecnológicas innovadoras.",
+          "Desarrollador Full Stack especializado en React, Angular y tecnologías modernas. Experiencia en desarrollo web, aplicaciones móviles y soluciones empresariales.",
+      },
+      // Open Graph / Facebook
+      {
+        property: "og:type",
+        content: "website",
       },
       {
-        name: "keywords",
-        content:
-          "desarrollador web, frontend, backend, react, angular, full stack, Mérida, Yucatán",
+        property: "og:url",
+        content: siteUrl,
       },
       {
         property: "og:title",
@@ -25,24 +36,46 @@ const Head = () => {
       {
         property: "og:description",
         content:
-          "Portfolio profesional mostrando proyectos y experiencia en desarrollo web moderno.",
+          "Portafolio profesional mostrando proyectos innovadores en desarrollo web y móvil. Especializado en React, Angular y tecnologías modernas.",
       },
       {
-        property: "og:type",
-        content: "website",
+        property: "og:image",
+        content: defaultImage,
       },
+      {
+        property: "og:image:width",
+        content: "1200",
+      },
+      {
+        property: "og:image:height",
+        content: "630",
+      },
+      // Twitter
       {
         name: "twitter:card",
         content: "summary_large_image",
       },
       {
+        name: "twitter:url",
+        content: siteUrl,
+      },
+      {
         name: "twitter:title",
-        content: "Geovanni Casanova | Desarrollador Full Stack",
+        content: "Geovanni Casanova | Full Stack Developer",
       },
       {
         name: "twitter:description",
         content:
-          "Portfolio profesional mostrando proyectos y experiencia en desarrollo web moderno.",
+          "Desarrollador Full Stack con experiencia en React, Angular y desarrollo web moderno. Descubre mis proyectos y habilidades.",
+      },
+      {
+        name: "twitter:image",
+        content: defaultImage,
+      },
+      // Meta tags adicionales
+      {
+        name: "theme-color",
+        content: "#000000",
       },
       {
         name: "robots",
@@ -53,16 +86,17 @@ const Head = () => {
         content: "Spanish",
       },
       {
-        name: "revisit-after",
-        content: "7 days",
-      },
-      {
         name: "author",
         content: "Geovanni Casanova",
       },
+      {
+        name: "keywords",
+        content:
+          "desarrollo web, frontend, backend, react, angular, full stack, méxico, yucatán, mérida",
+      },
     ];
 
-    // Eliminar meta tags existentes
+    // Limpiar meta tags existentes
     document.querySelectorAll("meta").forEach((tag) => {
       if (tag.name !== "viewport" && tag.charset !== "UTF-8") {
         tag.remove();
@@ -78,31 +112,15 @@ const Head = () => {
       document.head.appendChild(meta);
     });
 
-    // Agregar preload para fuentes
-    const preloadLinks = [
-      {
-        rel: "preload",
-        href: "/fonts/SpaceGrotesk-Bold.woff2",
-        as: "font",
-        type: "font/woff2",
-        crossOrigin: "anonymous",
-      },
-      {
-        rel: "preload",
-        href: "/fonts/Inter-Regular.woff2",
-        as: "font",
-        type: "font/woff2",
-        crossOrigin: "anonymous",
-      },
-    ];
+    // Actualizar el título
+    document.title = "Geovanni Casanova | Desarrollador Full Stack";
 
-    preloadLinks.forEach((link) => {
-      const linkElement = document.createElement("link");
-      Object.keys(link).forEach((key) => {
-        linkElement[key] = link[key];
-      });
-      document.head.appendChild(linkElement);
-    });
+    // Agregar favicon
+    const faviconLink = document.createElement("link");
+    faviconLink.rel = "icon";
+    faviconLink.type = "image/svg+xml";
+    faviconLink.href = "/favicon.svg";
+    document.head.appendChild(faviconLink);
   }, []);
 
   return null;

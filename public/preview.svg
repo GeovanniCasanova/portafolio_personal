@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Fondo con gradiente -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1F2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fondo -->
+  <rect width="1200" height="630" fill="url(#bgGrad)" />
+  
+  <!-- Patrón de decoración -->
+  <g opacity="0.1">
+    {Array.from({ length: 10 }).map((_, i) => (
+      <rect 
+        key={i} 
+        x={100 + i * 100} 
+        y="100" 
+        width="50" 
+        height="50" 
+        transform="rotate(45 125 125)" 
+        fill="white"
+      />
+    ))}
+  </g>
+  
+  <!-- Texto principal -->
+  <text x="600" y="280" 
+    font-family="Space Grotesk, sans-serif" 
+    font-size="72"
+    font-weight="bold"
+    text-anchor="middle" 
+    fill="url(#titleGrad)">
+    Geovanni Casanova
+  </text>
+  
+  <!-- Subtítulo -->
+  <text x="600" y="350" 
+    font-family="Inter, sans-serif" 
+    font-size="36"
+    text-anchor="middle" 
+    fill="#9CA3AF">
+    Desarrollador Full Stack
+  </text>
+  
+  <!-- Tecnologías -->
+  <text x="600" y="420" 
+    font-family="Inter, sans-serif" 
+    font-size="24"
+    text-anchor="middle" 
+    fill="#6B7280">
+    React • Angular • Node.js • TypeScript
+  </text>
+</svg>
