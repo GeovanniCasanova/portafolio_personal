@@ -1,14 +1,20 @@
+// src/App.jsx
 import { motion } from "framer-motion";
 import {
   Github,
   ExternalLink,
   Code,
   Server,
-  Database,
   Mail,
+  Cloud,
+  Brain,
 } from "lucide-react";
 import "@fontsource/space-grotesk";
 import "@fontsource/inter";
+
+// Importar nuevos componentes
+import ExperienceTimeline from "./components/sections/ExperienceTimeline";
+import AITools from "./components/sections/AITools";
 
 const Portfolio = () => {
   const projects = [
@@ -87,6 +93,9 @@ const Portfolio = () => {
         </div>
       </section>
 
+      {/* Experience Timeline Section */}
+      <ExperienceTimeline />
+
       {/* Projects Section */}
       <section className="py-32 bg-gradient-to-b from-black to-gray-900">
         <div className="container mx-auto px-4">
@@ -159,18 +168,22 @@ const Portfolio = () => {
         </div>
       </section>
 
+      {/* AI Tools Section */}
+      <AITools />
+
       {/* Skills Section */}
       <section className="py-32 bg-black">
         <div className="container mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
             className="text-4xl md:text-5xl font-display font-bold mb-16 text-center"
           >
             Tecnologías
           </motion.h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -211,13 +224,31 @@ const Portfolio = () => {
               className="p-6 bg-gray-800/50 rounded-xl backdrop-blur-sm"
             >
               <div className="flex items-center mb-4">
-                <Database className="w-6 h-6 text-pink-400" />
+                <Cloud className="w-6 h-6 text-pink-400" />
                 <h3 className="text-xl font-display font-bold ml-2">DevOps</h3>
               </div>
               <div className="space-y-2">
                 <p className="text-pink-300">AWS • Digital Ocean</p>
                 <p className="text-pink-300">Docker • CI/CD</p>
                 <p className="text-pink-300">Cloud Architecture</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="p-6 bg-gray-800/50 rounded-xl backdrop-blur-sm"
+            >
+              <div className="flex items-center mb-4">
+                <Brain className="w-6 h-6 text-green-400" />
+                <h3 className="text-xl font-display font-bold ml-2">
+                  AI & Tools
+                </h3>
+              </div>
+              <div className="space-y-2">
+                <p className="text-green-300">ChatGPT • Claude</p>
+                <p className="text-green-300">Gemini • LLaMA</p>
+                <p className="text-green-300">Process Automation</p>
               </div>
             </motion.div>
           </div>
