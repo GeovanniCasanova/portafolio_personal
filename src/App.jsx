@@ -16,24 +16,53 @@ import "@fontsource/inter";
 import ExperienceTimeline from "./components/sections/ExperienceTimeline";
 import AITools from "./components/sections/AITools";
 
+import codheyImage from "@/assets/images/codhey_web.png";
+import oaxacaMielImage from "@/assets/images/oaxaca_miel_web.png";
+import midHomesImage from "@/assets/images/yucatan_mid_homes.png";
+
 const Portfolio = () => {
   const projects = [
     {
-      title: "E-commerce Platform",
+      title: "CODHEY",
       description:
-        "Plataforma de comercio electrónico desarrollada con React y Node.js",
-      image: "/api/placeholder/800/600",
-      tags: ["React", "Node.js", "MongoDB"],
-      link: "https://proyecto1.com",
-      github: "https://github.com/usuario/proyecto1",
+        "Portal oficial de la Comisión de Derechos Humanos del Estado de Yucatán. Plataforma web completa que incluye sistema de gestión de contenidos, portal de transparencia y herramientas de accesibilidad para personas con discapacidad.",
+      image: codheyImage,
+      tags: ["Angular", "TypeScript", "Node.js", "Mysql", "Godaddy"],
+      link: "https://codhey.org/",
+      features: [
+        "Sistema de gestión de contenidos personalizado",
+        "Portal de transparencia integrado",
+        "Herramientas de accesibilidad web",
+        "Optimización SEO",
+      ],
     },
     {
-      title: "Dashboard Analytics",
-      description: "Panel de control para análisis de datos empresariales",
-      image: "/api/placeholder/800/600",
-      tags: ["Angular", "TypeScript", "AWS"],
-      link: "https://proyecto2.com",
-      github: "https://github.com/usuario/proyecto2",
+      title: "Oaxaca Miel",
+      description:
+        "E-commerce especializado en la venta de productos apícolas artesanales de Oaxaca. Incluye sistema de carrito de compras, gestión de inventario y procesamiento de pagos seguros.",
+      image: oaxacaMielImage,
+      tags: ["React", "Node.js", "Express", "MySQL"],
+      link: "https://oaxacamiel.com/",
+      features: [
+        "Carrito de compras integrado",
+        "Sistema de pagos con Stripe",
+        "Gestión de inventario en tiempo real",
+        "Diseño responsivo optimizado",
+      ],
+    },
+    {
+      title: "Yucatan Mid Homes",
+      description:
+        "Portal inmobiliario con sistema avanzado de búsqueda y filtrado de propiedades. Incluye visualización de propiedades en mapa, galería de imágenes y sistema de contacto integrado.",
+      image: midHomesImage,
+      tags: ["Angular", "Google Maps API", "Wordpress"],
+      link: "https://yucatanmidhomes.com/",
+      features: [
+        "Sistema de búsqueda avanzado",
+        "Integración con Google Maps",
+        "Galería de imágenes interactiva",
+        "Sistema de leads automatizado",
+      ],
     },
   ];
 
@@ -97,6 +126,7 @@ const Portfolio = () => {
       <ExperienceTimeline />
 
       {/* Projects Section */}
+      {/* Projects Section */}
       <section className="py-32 bg-gradient-to-b from-black to-gray-900">
         <div className="container mx-auto px-4">
           <motion.h2
@@ -115,8 +145,9 @@ const Portfolio = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="group relative bg-gray-800 rounded-xl overflow-hidden"
+                className="group relative bg-gray-800 rounded-xl overflow-hidden shadow-xl"
               >
+                {/* Imagen del proyecto */}
                 <div className="aspect-video overflow-hidden">
                   <img
                     src={project.image}
@@ -124,12 +155,33 @@ const Portfolio = () => {
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-0 p-6">
-                    <h3 className="text-xl font-display font-bold mb-2">
+
+                {/* Overlay con información del proyecto */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-y-auto">
+                  <div className="absolute bottom-0 p-6 w-full">
+                    {/* Título del proyecto */}
+                    <h3 className="text-2xl font-display font-bold mb-2 text-white">
                       {project.title}
                     </h3>
-                    <p className="text-gray-300 mb-4">{project.description}</p>
+
+                    {/* Descripción */}
+                    <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    {/* Lista de características */}
+                    <div className="mb-4">
+                      <h4 className="text-sm font-semibold text-purple-300 mb-2">
+                        Características principales:
+                      </h4>
+                      <ul className="list-disc list-inside space-y-1 text-gray-300 text-sm">
+                        {project.features.map((feature, i) => (
+                          <li key={i}>{feature}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Tags de tecnologías */}
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tags.map((tag, i) => (
                         <span
@@ -140,25 +192,29 @@ const Portfolio = () => {
                         </span>
                       ))}
                     </div>
+
+                    {/* Botones de acción */}
                     <div className="flex space-x-4">
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-white/80 hover:text-white"
+                        className="flex items-center space-x-2 bg-blue-500/20 hover:bg-blue-500/30 text-white px-4 py-2 rounded-lg transition-colors"
                       >
                         <ExternalLink className="w-5 h-5" />
                         <span>Ver proyecto</span>
                       </a>
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2 text-white/80 hover:text-white"
-                      >
-                        <Github className="w-5 h-5" />
-                        <span>Código</span>
-                      </a>
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center space-x-2 bg-purple-500/20 hover:bg-purple-500/30 text-white px-4 py-2 rounded-lg transition-colors"
+                        >
+                          <Github className="w-5 h-5" />
+                          <span>Código</span>
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
