@@ -18,6 +18,9 @@ import ExperienceTimeline from "./components/sections/ExperienceTimeline";
 import AITools from "./components/sections/AITools";
 import ProjectFilter from "./components/sections/ProjectFilter";
 import OptimizedImage from "./components/common/OptimizedImage";
+import SocialShare from "./components/common/SocialShare";
+import ContactSection from "./components/sections/ContactSection";
+import WhatsAppButton from "./components/common/WhatsAppButton";
 
 import Head from "./components/layout/Head";
 import { projects } from "./data/projects";
@@ -298,6 +301,13 @@ const Portfolio = () => {
             </div>
           </div>
         </section>
+
+        {/* Agregar la nueva sección de contacto */}
+        <ContactSection />
+
+        {/* Botón flotante de compartir */}
+        <WhatsAppButton />
+        <SocialShare />
       </div>
     </>
   );
