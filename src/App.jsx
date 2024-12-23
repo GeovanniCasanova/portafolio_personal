@@ -15,6 +15,7 @@ import { useState } from "react";
 
 // Importar nuevos componentes
 import ExperienceTimeline from "./components/sections/ExperienceTimeline";
+import EducationSection from "./components/sections/EducationSection";
 import AITools from "./components/sections/AITools";
 import ProjectFilter from "./components/sections/ProjectFilter";
 import OptimizedImage from "./components/common/OptimizedImage";
@@ -88,6 +89,8 @@ const Portfolio = () => {
 
         {/* Experience Timeline Section */}
         <ExperienceTimeline />
+
+        <EducationSection />
 
         {/* Projects Section */}
         <section className="py-32 bg-gradient-to-b from-black to-gray-900">
