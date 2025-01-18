@@ -25,6 +25,7 @@ import WhatsAppButton from "./components/common/WhatsAppButton";
 
 import Head from "./components/layout/Head";
 import { projects } from "./data/projects";
+import BusinessSolutions from "./components/sections/BusinessSolutions";
 
 const Portfolio = () => {
   const [filteredProjects, setFilteredProjects] = useState(projects);
@@ -91,6 +92,8 @@ const Portfolio = () => {
         <ExperienceTimeline />
 
         <EducationSection />
+
+        <BusinessSolutions />
 
         {/* Projects Section */}
         <section className="py-32 bg-gradient-to-b from-black to-gray-900">
