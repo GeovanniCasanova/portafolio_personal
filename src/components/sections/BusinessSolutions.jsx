@@ -261,55 +261,82 @@ const BusinessSolutions = () => {
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {solutions.map((solution, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 backdrop-blur-sm hover:shadow-xl transition-all duration-300"
-            >
-              <div className="flex items-center mb-4">
-                <div className="p-3 bg-purple-500/20 rounded-lg">
-                  <solution.icon className="w-6 h-6 text-purple-400" />
+            <div key={index} className="relative">
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 backdrop-blur-sm hover:shadow-xl transition-all duration-300"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="p-3 bg-purple-500/20 rounded-lg">
+                    <solution.icon className="w-6 h-6 text-purple-400" />
+                  </div>
+                  <h3 className="text-xl font-display font-bold ml-3">
+                    {solution.title}
+                  </h3>
                 </div>
-                <h3 className="text-xl font-display font-bold ml-3">
-                  {solution.title}
-                </h3>
-              </div>
 
-              <p className="text-gray-300 mb-4">{solution.description}</p>
+                <p className="text-gray-300 mb-4">{solution.description}</p>
 
-              <ul className="space-y-2">
-                {solution.features.map((feature, i) => (
-                  <li key={i} className="flex items-center text-gray-400">
-                    <Sparkles className="w-4 h-4 text-purple-400 mr-2" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
+                <ul className="space-y-2">
+                  {solution.features.map((feature, i) => (
+                    <li key={i} className="flex items-center text-gray-400">
+                      <Sparkles className="w-4 h-4 text-purple-400 mr-2" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
 
-              {solution.title !== "Sistema Integral" && (
-                <button
-                  onClick={() =>
-                    setActiveDemo(
-                      solution.title === "Menús Digitales" ? "menu" : "bank"
-                    )
-                  }
-                  className="mt-6 px-4 py-2 bg-purple-500/20 text-purple-300 rounded-lg hover:bg-purple-500/30 transition-colors w-full"
-                >
-                  Ver Demo
-                </button>
-              )}
-            </motion.div>
+                {solution.title !== "Sistema Integral" && (
+                  <button
+                    onClick={() =>
+                      setActiveDemo(
+                        solution.title === "Menús Digitales" ? "menu" : "bank"
+                      )
+                    }
+                    className="mt-6 px-4 py-2 bg-purple-500/20 text-purple-300 rounded-lg hover:bg-purple-500/30 transition-colors w-full"
+                  >
+                    Ver Demo
+                  </button>
+                )}
+              </motion.div>
+
+              {/* Demo para móvil */}
+              {activeDemo &&
+                (solution.title === "Menús Digitales"
+                  ? activeDemo === "menu"
+                  : activeDemo === "bank") && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="mt-4 md:hidden"
+                  >
+                    <div className="bg-gray-900/50 rounded-xl p-4 backdrop-blur-sm">
+                      <h3 className="text-xl font-display font-bold mb-4">
+                        {demoFrames[activeDemo].title}
+                      </h3>
+                      {demoFrames[activeDemo].component}
+                      <button
+                        onClick={() => setActiveDemo(null)}
+                        className="mt-4 px-4 py-2 bg-gray-700/50 text-gray-300 rounded-lg hover:bg-gray-700/70 transition-colors w-full"
+                      >
+                        Cerrar Demo
+                      </button>
+                    </div>
+                  </motion.div>
+                )}
+            </div>
           ))}
         </div>
 
-        {/* Demo Section */}
+        {/* Demo Section - Solo visible en desktop */}
         {activeDemo && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-md mx-auto bg-gray-900/50 rounded-xl p-6 backdrop-blur-sm"
+            className="hidden md:block max-w-md mx-auto bg-gray-900/50 rounded-xl p-6 backdrop-blur-sm"
           >
             <h3 className="text-xl font-display font-bold mb-6">
               {demoFrames[activeDemo].title}
@@ -337,6 +364,12 @@ const BusinessSolutions = () => {
           <p className="text-gray-300 mb-8">
             Contáctame para crear una solución personalizada para tu empresa
           </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-lg font-display font-bold transition-colors"
+          >
+            Solicitar Información
+          </a>
         </motion.div>
       </div>
     </section>
