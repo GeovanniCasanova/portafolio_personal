@@ -3,14 +3,36 @@ import codheyImage from "@/assets/images/codhey_web.png";
 import oaxacaMielImage from "@/assets/images/oaxaca_miel_web.png";
 import midHomesImage from "@/assets/images/yucatan_mid_homes.png";
 import mvpImage from "@/assets/images/mvp-inventario.png";
+import syswareImage from "@/assets/images/sysware_digital.png";
 
 export const projects = [
+    {
+    title: "Sysware Digital",
+    description: "Sistema de gestión digital para negocios que facilita la digitalización de operaciones, incluyendo menús digitales y gestión de pagos. Enfocado en pequeños y medianos negocios.",
+    image: syswareImage, // Necesitarás importar esta imagen
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "MySQL", "Prisma"],
+    link: "https://sysware-digital.vercel.app",
+    features: [
+      "Gestión multi-negocio con roles y permisos",
+      "Menús digitales personalizables con códigos QR",
+      "Sistema seguro de información bancaria",
+      "Panel administrativo con tema claro/oscuro",
+      "API RESTful con TypeScript y Prisma"
+    ],
+    techFeatures: [
+      "Arquitectura modular con Next.js 13 App Router",
+      "Sistema de autenticación con NextAuth.js",
+      "Optimización de rendimiento con SWR",
+      "Validación de datos con Zod",
+      "Rate limiting y medidas de seguridad"
+    ]
+  },
     {
       title: "CODHEY",
       description:
         "Portal oficial de la Comisión de Derechos Humanos del Estado de Yucatán. Plataforma web completa que incluye sistema de gestión de contenidos, portal de transparencia y herramientas de accesibilidad para personas con discapacidad.",
       image: codheyImage,
-      tags: ["Angular", "Node.js", "Mysql"],
+      tags: ["Angular", "Node.js", "MySQL"],
       link: "https://codhey.org/",
       features: [
         "Sistema de gestión de contenidos personalizado",
@@ -24,7 +46,7 @@ export const projects = [
       description:
         "E-commerce especializado en la venta de productos apícolas artesanales de Oaxaca. Incluye sistema de carrito de compras, gestión de inventario y procesamiento de pagos seguros.",
       image: oaxacaMielImage,
-      tags: ["Angular", "Node.js", "Express", "Mysql"],
+      tags: ["Angular", "Node.js", "Express", "MySQL"],
       link: "https://oaxacamiel.com/",
       features: [
         "Carrito de compras integrado",
@@ -51,7 +73,7 @@ export const projects = [
   title: "MVP Inventario",
   description: "Sistema de gestión de inventario moderno y adaptable con funcionalidades avanzadas para control de productos, clientes y proveedores. Incluye dashboard interactivo, gestión de stock, reportes detallados y sistema de notificaciones.",
   image: mvpImage,
-  tags: ["Angular", "Tailwind CSS", "Node.js", "Mysql"],
+  tags: ["Angular", "Tailwind CSS", "Node.js", "MySQL"],
   link: "https://mvp-inventario-frontend.vercel.app",
   features: [
     "Dashboard con métricas clave y alertas",

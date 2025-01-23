@@ -364,12 +364,6 @@ const BusinessSolutions = () => {
           <p className="text-gray-300 mb-8">
             Contáctame para crear una solución personalizada para tu empresa
           </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-lg font-display font-bold transition-colors"
-          >
-            Solicitar Información
-          </a>
         </motion.div>
       </div>
     </section>
