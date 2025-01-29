@@ -45,7 +45,10 @@ const ExperienceTimeline = () => {
   ];
 
   return (
-    <section className="py-32 bg-gradient-to-b from-gray-900 to-black">
+    <section
+      aria-labelledby="experience-title"
+      className="py-32 bg-gradient-to-b from-gray-900 to-black"
+    >
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0 }}

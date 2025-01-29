@@ -26,7 +26,10 @@ const Portfolio = () => {
       <Head />
       <div className="min-h-screen bg-black text-white">
         {/* Hero Section con Parallax */}
-        <section className="relative h-screen overflow-hidden">
+        <section
+          aria-label="Introducción"
+          className="relative h-screen overflow-hidden"
+        >
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-20 animate-gradient"></div>
 
           <div className="absolute inset-0 flex items-center justify-center">
@@ -87,7 +90,10 @@ const Portfolio = () => {
         <BusinessSolutions />
 
         {/* Projects Section */}
-        <section className="py-32 bg-gradient-to-b from-black to-gray-900">
+        <section
+          aria-labelledby="projects-title"
+          className="py-32 bg-gradient-to-b from-black to-gray-900"
+        >
           <div className="container mx-auto px-4">
             <motion.h2
               initial={{ opacity: 0 }}
@@ -105,12 +111,17 @@ const Portfolio = () => {
 
             <div className="grid md:grid-cols-2 gap-8">
               {filteredProjects.map((project, index) => (
-                <ProjectCard
+                <article
                   key={index}
-                  project={project}
-                  index={index}
-                  priority={index === 0}
-                />
+                  className="project-card"
+                  aria-labelledby={`project-title-${index}`}
+                >
+                  <ProjectCard
+                    project={project}
+                    index={index}
+                    priority={index === 0}
+                  />
+                </article>
               ))}
             </div>
           </div>

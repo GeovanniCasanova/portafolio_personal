@@ -48,7 +48,10 @@ const ContactSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-gray-900 to-black">
+    <section
+      role="contentinfo"
+      className="py-24 bg-gradient-to-b from-gray-900 to-black"
+    >
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -1,5 +1,6 @@
 // src/components/layout/Head.jsx
 import { useEffect } from "react";
+import { projects } from "@/data/projects";
 
 const Head = () => {
   useEffect(() => {
@@ -112,6 +113,63 @@ const Head = () => {
       },
     ];
 
+    const schema = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id":
+            "https://geovannicasanova.github.io/portafolio_personal/#person",
+          name: "Geovanni Casanova",
+          jobTitle: "Desarrollador Full Stack",
+          description:
+            "Desarrollador Full Stack especializado en React, Angular y tecnologías modernas.",
+          image: `${siteUrl}/profile.jpg`,
+          sameAs: [
+            "https://github.com/GeovanniCasanova",
+            "https://www.linkedin.com/in/geovanni-casanova-b03a15227/",
+          ],
+          worksFor: {
+            "@type": "Organization",
+            name: "31rooms",
+          },
+          knowsAbout: [
+            "React",
+            "Angular",
+            "Node.js",
+            "TypeScript",
+            "Full Stack Development",
+          ],
+        },
+        {
+          "@type": "WebSite",
+          "@id":
+            "https://geovannicasanova.github.io/portafolio_personal/#website",
+          url: siteUrl,
+          name: "Geovanni Casanova | Desarrollador Full Stack",
+          description: "Portafolio profesional de Geovanni Casanova",
+          publisher: {
+            "@id":
+              "https://geovannicasanova.github.io/portafolio_personal/#person",
+          },
+        },
+        {
+          "@type": "ItemList",
+          "@id":
+            "https://geovannicasanova.github.io/portafolio_personal/#projects",
+          itemListElement: projects.map((project, index) => ({
+            "@type": "WebPage",
+            "@id": `${siteUrl}#project-${index}`,
+            name: project.title,
+            description: project.description,
+            url: project.link,
+            image: project.image,
+            position: index + 1,
+          })),
+        },
+      ],
+    };
+
     // Limpiar meta tags existentes
     document.querySelectorAll("meta").forEach((tag) => {
       if (tag.name !== "viewport" && tag.charset !== "UTF-8") {
@@ -137,6 +195,11 @@ const Head = () => {
     faviconLink.type = "image/svg+xml";
     faviconLink.href = "/portafolio_personal/favicon.svg";
     document.head.appendChild(faviconLink);
+
+    const scriptTag = document.createElement("script");
+    scriptTag.type = "application/ld+json";
+    scriptTag.text = JSON.stringify(schema);
+    document.head.appendChild(scriptTag);
   }, []);
 
   return null;
