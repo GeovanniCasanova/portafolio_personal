@@ -4,12 +4,13 @@ import oaxacaMielImage from "@/assets/images/oaxaca_miel_web.png";
 import midHomesImage from "@/assets/images/yucatan_mid_homes.png";
 import mvpImage from "@/assets/images/mvp-inventario.png";
 import syswareImage from "@/assets/images/sysware_digital.png";
+import iphoneCatalogImage from "@/assets/images/landing_page_mobilmx.png";
 
 export const projects = [
     {
     title: "Sysware Digital",
     description: "Sistema de gestión digital para negocios que facilita la digitalización de operaciones, incluyendo menús digitales y gestión de pagos. Enfocado en pequeños y medianos negocios.",
-    image: syswareImage, // Necesitarás importar esta imagen
+    image: syswareImage,
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "MySQL", "Prisma"],
     link: "https://sysware-digital.vercel.app",
     features: [
@@ -25,6 +26,29 @@ export const projects = [
       "Optimización de rendimiento con SWR",
       "Validación de datos con Zod",
       "Rate limiting y medidas de seguridad"
+    ]
+  },
+  {
+    title: "iMobilMX",
+    description: "Catálogo e-commerce especializado en iPhones premium, construido con Astro y React. Enfocado en rendimiento SEO excepcional, tasas de conversión optimizadas mediante integración de WhatsApp y una experiencia de usuario premium.",
+    image: iphoneCatalogImage,
+    tags: ["Astro", "React", "TypeScript", "Tailwind CSS", "SEO"],
+    link: "https://mobilmx.vercel.app/",
+    features: [
+      "Server-side rendering (SSR) para SEO óptimo",
+      "Integración con WhatsApp para conversión directa",
+      "Catálogo dinámico con especificaciones detalladas",
+      "Diseño responsive enfocado en móviles",
+      "Implementación de Schema.org para datos estructurados",
+      "Optimización de imágenes y lazy loading",
+      "Assets y componentes optimizados para rendimiento"
+    ],
+    techFeatures: [
+      "Prácticas SEO avanzadas con meta tags dinámicos",
+      "TypeScript para mejor seguridad de tipos",
+      "Hidratación parcial de Astro para rendimiento óptimo",
+      "Arquitectura basada en componentes React",
+      "Sistema de diseño consistente con Tailwind CSS",
     ]
   },
     {
@@ -46,7 +70,7 @@ export const projects = [
       description:
         "E-commerce especializado en la venta de productos apícolas artesanales de Oaxaca. Incluye sistema de carrito de compras, gestión de inventario y procesamiento de pagos seguros.",
       image: oaxacaMielImage,
-      tags: ["Angular", "Node.js", "Express", "MySQL"],
+      tags: ["Angular", "Node.js", "MySQL"],
       link: "https://oaxacamiel.com/",
       features: [
         "Carrito de compras integrado",
