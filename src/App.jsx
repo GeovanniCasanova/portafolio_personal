@@ -17,6 +17,7 @@ import ProjectCard from "./components/sections/ProjectCard";
 import Head from "./components/layout/Head";
 import { projects } from "./data/projects";
 import BusinessSolutions from "./components/sections/BusinessSolutions";
+import ScrollIndicator from "./components/common/ScrollIndicator";
 
 const Portfolio = () => {
   const [filteredProjects, setFilteredProjects] = useState(projects);
@@ -77,9 +78,7 @@ const Portfolio = () => {
             </div>
           </motion.div>
 
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div className="w-6 h-6 border-2 border-white rounded-full"></div>
-          </div>
+          <ScrollIndicator />
         </section>
 
         {/* Experience Timeline Section */}

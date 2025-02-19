@@ -1,7 +1,7 @@
-import { MessageCircle } from "lucide-react";
+import whatsappIcon from "@/assets/icons/Digital_Glyph_Green.svg";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "529993568688"; // Tu número de teléfono
+  const phoneNumber = "529993568688";
   const message = "¡Hola Geovanni! Me interesa contactarte...";
 
   const handleWhatsAppClick = () => {
@@ -14,14 +14,21 @@ const WhatsAppButton = () => {
   return (
     <button
       onClick={handleWhatsAppClick}
-      className="fixed bottom-6 left-6 z-50 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition-all duration-300 hover:scale-110"
+      className="fixed bottom-6 left-6 z-50 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 group"
       aria-label="Contactar por WhatsApp"
     >
-      <MessageCircle className="w-6 h-6 text-white" />
+      <img
+        src={whatsappIcon}
+        alt="WhatsApp"
+        className="w-6 h-6"
+        width="24"
+        height="24"
+      />
 
-      {/* Tooltip */}
-      <span className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-900 text-white text-sm rounded-lg opacity-0 pointer-events-none transition-opacity group-hover:opacity-100 whitespace-nowrap">
-        ¡Contáctame!
+      {/* Tooltip ajustado para alinearse desde la izquierda */}
+      <span className="absolute bottom-full left-0 mb-2 px-3 py-2 bg-black/90 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-lg">
+        ¡Contáctame por WhatsApp!
+        <span className="absolute bottom-0 left-6 transform translate-y-1/2 rotate-45 w-2 h-2 bg-black/90"></span>
       </span>
     </button>
   );
