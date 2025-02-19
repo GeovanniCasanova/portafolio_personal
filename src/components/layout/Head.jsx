@@ -6,9 +6,35 @@ const Head = () => {
   useEffect(() => {
     // URL base del sitio
     const siteUrl = "https://geovannicasanova.github.io/portafolio_personal";
-
-    // Imagen por defecto para compartir (asegúrate de que esta imagen exista en tu proyecto)
     const defaultImage = `${siteUrl}/portafolio_personal/preview.svg`;
+    const baseConfig = {
+      title: "Geovanni Casanova | Desarrollador Full Stack",
+      description:
+        "Desarrollador Full Stack especializado en React, Angular y tecnologías modernas. Experiencia en desarrollo web, aplicaciones móviles y soluciones empresariales.",
+      image: defaultImage,
+    };
+
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Geovanni Casanova",
+      jobTitle: "Desarrollador Full Stack",
+      url: "https://geovannicasanova.github.io/portafolio_personal/",
+      sameAs: [
+        "https://github.com/GeovanniCasanova",
+        "https://www.linkedin.com/in/geovanni-casanova-b03a15227/",
+      ],
+    };
+
+    const canonical = document.createElement("link");
+    canonical.rel = "canonical";
+    canonical.href = siteUrl;
+    document.head.appendChild(canonical);
+
+    const script = document.createElement("script");
+    script.type = "application/ld+json";
+    script.text = JSON.stringify(structuredData);
+    document.head.appendChild(script);
     const metaTags = [
       // Meta tags básicos
       {
@@ -112,18 +138,15 @@ const Head = () => {
           "desarrollo web, frontend, backend, react, angular, full stack, méxico, yucatán, mérida",
       },
     ];
-
     const schema = {
       "@context": "https://schema.org",
       "@graph": [
         {
           "@type": "Person",
-          "@id":
-            "https://geovannicasanova.github.io/portafolio_personal/#person",
+          "@id": `${siteUrl}/#person`,
           name: "Geovanni Casanova",
           jobTitle: "Desarrollador Full Stack",
-          description:
-            "Desarrollador Full Stack especializado en React, Angular y tecnologías modernas.",
+          description: baseConfig.description,
           image: `${siteUrl}/profile.jpg`,
           sameAs: [
             "https://github.com/GeovanniCasanova",
@@ -140,35 +163,70 @@ const Head = () => {
             "TypeScript",
             "Full Stack Development",
           ],
-        },
-        {
-          "@type": "WebSite",
-          "@id":
-            "https://geovannicasanova.github.io/portafolio_personal/#website",
-          url: siteUrl,
-          name: "Geovanni Casanova | Desarrollador Full Stack",
-          description: "Portafolio profesional de Geovanni Casanova",
-          publisher: {
-            "@id":
-              "https://geovannicasanova.github.io/portafolio_personal/#person",
+          // Agregar habilidades específicas
+          hasOccupation: {
+            "@type": "Occupation",
+            name: "Full Stack Developer",
+            skills: [
+              "React",
+              "Angular",
+              "Node.js",
+              "AWS",
+              "Digital Ocean",
+              "TypeScript",
+            ],
+          },
+          // Agregar portafolio como CreativeWork
+          mainEntityOfPage: {
+            "@type": "CreativeWork",
+            "@id": `${siteUrl}/#portfolio`,
+            name: "Portfolio de Desarrollo Full Stack",
+            abstract: "Colección de proyectos y experiencias en desarrollo web",
           },
         },
+        // Agregar WorkExperience
         {
-          "@type": "ItemList",
-          "@id":
-            "https://geovannicasanova.github.io/portafolio_personal/#projects",
-          itemListElement: projects.map((project, index) => ({
-            "@type": "WebPage",
-            "@id": `${siteUrl}#project-${index}`,
-            name: project.title,
-            description: project.description,
-            url: project.link,
-            image: project.image,
-            position: index + 1,
-          })),
+          "@type": "WorkExperience",
+          "@id": `${siteUrl}/#experience`,
+          jobTitle: "Desarrollador Frontend",
+          employmentType: "Full-time",
+          organization: {
+            "@type": "Organization",
+            name: "31rooms",
+          },
+          startDate: "2024-03",
         },
+        // Proyecto como SoftwareApplication
+        ...projects.map((project, index) => ({
+          "@type": "SoftwareApplication",
+          "@id": `${siteUrl}#project-${index}`,
+          name: project.title,
+          description: project.description,
+          url: project.link,
+          image: project.image,
+          applicationCategory: "WebApplication",
+          operatingSystem: "Any",
+          offers: {
+            "@type": "Offer",
+            availability: "http://schema.org/InStock",
+            price: "0",
+            priceCurrency: "USD",
+          },
+        })),
       ],
     };
+
+    const existingSchema = document.querySelector(
+      'script[type="application/ld+json"]'
+    );
+    if (existingSchema) {
+      existingSchema.remove();
+    }
+
+    const scriptTag = document.createElement("script");
+    scriptTag.type = "application/ld+json";
+    scriptTag.text = JSON.stringify(schema);
+    document.head.appendChild(scriptTag);
 
     // Limpiar meta tags existentes
     document.querySelectorAll("meta").forEach((tag) => {
@@ -195,11 +253,6 @@ const Head = () => {
     faviconLink.type = "image/svg+xml";
     faviconLink.href = "/portafolio_personal/favicon.svg";
     document.head.appendChild(faviconLink);
-
-    const scriptTag = document.createElement("script");
-    scriptTag.type = "application/ld+json";
-    scriptTag.text = JSON.stringify(schema);
-    document.head.appendChild(scriptTag);
   }, []);
 
   return null;
