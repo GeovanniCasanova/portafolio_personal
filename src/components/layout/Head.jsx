@@ -5,8 +5,9 @@ import { projects } from "@/data/projects";
 const Head = () => {
   useEffect(() => {
     // URL base del sitio
-    const siteUrl = "https://geovannicasanova.github.io/portafolio_personal";
-    const defaultImage = `${siteUrl}/portafolio_personal/preview.svg`;
+    const siteUrl = "https://geovannicasanova.dev";
+    // Es mejor usar PNG o JPG para Open Graph en lugar de SVG
+    const defaultImage = `${siteUrl}/preview.png`;
     const baseConfig = {
       title: "Geovanni Casanova | Desarrollador Full Stack",
       description:
@@ -19,7 +20,7 @@ const Head = () => {
       "@type": "Person",
       name: "Geovanni Casanova",
       jobTitle: "Desarrollador Full Stack",
-      url: "https://geovannicasanova.github.io/portafolio_personal/",
+      url: "https://geovannicasanova.dev/",
       sameAs: [
         "https://github.com/GeovanniCasanova",
         "https://www.linkedin.com/in/geovanni-casanova-b03a15227/",
@@ -107,13 +108,17 @@ const Head = () => {
         content: "es_ES",
       },
       {
-        property: "og:title",
-        content: "Geovanni Casanova | Desarrollador Full Stack",
+        property: "og:image:alt",
+        content: "Geovanni Casanova - Desarrollador Full Stack",
+      },
+      // WhatsApp específicos (aunque WhatsApp usa Open Graph, estos ayudan a asegurar compatibilidad)
+      {
+        property: "og:image:secure_url",
+        content: defaultImage,
       },
       {
-        property: "og:description",
-        content:
-          "Portafolio profesional mostrando proyectos innovadores en desarrollo web y móvil.",
+        property: "og:image:type",
+        content: "image/png",
       },
       // Meta tags adicionales
       {
@@ -122,7 +127,7 @@ const Head = () => {
       },
       {
         name: "robots",
-        content: "index, follow",
+        content: "index, follow, max-image-preview:large",
       },
       {
         name: "language",
@@ -135,7 +140,12 @@ const Head = () => {
       {
         name: "keywords",
         content:
-          "desarrollo web, frontend, backend, react, angular, full stack, méxico, yucatán, mérida",
+          "desarrollo web, frontend, backend, react, angular, full stack, méxico, yucatán, mérida, desarrollador web, programador",
+      },
+      // Verificación de sitio web (reemplaza con tus propios códigos de verificación)
+      {
+        name: "google-site-verification",
+        content: "tu-código-de-verificación-de-google",
       },
     ];
     const schema = {
@@ -213,6 +223,18 @@ const Head = () => {
             priceCurrency: "USD",
           },
         })),
+        // Agregar WebSite schema para mejorar SEO
+        {
+          "@type": "WebSite",
+          "@id": `${siteUrl}/#website`,
+          url: siteUrl,
+          name: "Geovanni Casanova | Desarrollador Full Stack",
+          description: baseConfig.description,
+          publisher: {
+            "@id": `${siteUrl}/#person`,
+          },
+          inLanguage: "es-ES",
+        },
       ],
     };
 
@@ -251,7 +273,7 @@ const Head = () => {
     const faviconLink = document.createElement("link");
     faviconLink.rel = "icon";
     faviconLink.type = "image/svg+xml";
-    faviconLink.href = "/portafolio_personal/favicon.svg";
+    faviconLink.href = "/favicon.svg";
     document.head.appendChild(faviconLink);
   }, []);
 

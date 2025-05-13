@@ -1,7 +1,7 @@
 import whatsappIcon from "@/assets/icons/Digital_Glyph_Green.svg";
 
 const WhatsAppButton = () => {
-  const phoneNumber = "529993568688";
+  const phoneNumber = "529991328933";
   const message = "¡Hola Geovanni! Me interesa contactarte...";
 
   const handleWhatsAppClick = () => {
