@@ -4,50 +4,102 @@ import { projects } from "@/data/projects";
 
 const Head = () => {
   useEffect(() => {
-    // URL base del sitio
+    // URL del sitio - Dominio personalizado
     const siteUrl = "https://geovannicasanova.dev";
-    // Es mejor usar PNG o JPG para Open Graph en lugar de SVG
-    const defaultImage = `${siteUrl}/preview.png`;
+
+    // Imagen Open Graph optimizada (1200x630px)
+    const ogImage = `${siteUrl}/preview.png`;
+
     const baseConfig = {
       title: "Geovanni Casanova | Desarrollador Full Stack",
       description:
-        "Desarrollador Full Stack especializado en React, Angular y tecnologías modernas. Experiencia en desarrollo web, aplicaciones móviles y soluciones empresariales.",
-      image: defaultImage,
+        "Desarrollador Full Stack especializado en React, Angular, Node.js y TypeScript. 5+ años transformando ideas en soluciones digitales escalables. Portafolio de proyectos web modernos.",
+      image: ogImage,
     };
 
-    const structuredData = {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      name: "Geovanni Casanova",
-      jobTitle: "Desarrollador Full Stack",
-      url: "https://geovannicasanova.dev/",
-      sameAs: [
-        "https://github.com/GeovanniCasanova",
-        "https://www.linkedin.com/in/geovanni-casanova-b03a15227/",
-      ],
-    };
-
+    // Canonical URL
     const canonical = document.createElement("link");
     canonical.rel = "canonical";
     canonical.href = siteUrl;
     document.head.appendChild(canonical);
 
+    // Structured Data (Schema.org)
+    const structuredData = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": `${siteUrl}/#person`,
+          name: "Geovanni Casanova",
+          jobTitle: "Desarrollador Full Stack",
+          description: baseConfig.description,
+          image: ogImage,
+          sameAs: [
+            "https://github.com/GeovanniCasanova",
+            "https://www.linkedin.com/in/geovanni-casanova-b03a15227/",
+            "https://www.facebook.com/profile.php?id=61575675205768",
+          ],
+          worksFor: {
+            "@type": "Organization",
+            name: "Financiera - jc soluciones",
+          },
+          knowsAbout: [
+            "React",
+            "Angular",
+            "Node.js",
+            "TypeScript",
+            "Full Stack Development",
+            "PostgreSQL",
+          ],
+        },
+        {
+          "@type": "WebSite",
+          "@id": `${siteUrl}/#website`,
+          url: siteUrl,
+          name: "Geovanni Casanova | Desarrollador Full Stack",
+          description: baseConfig.description,
+          publisher: {
+            "@id": `${siteUrl}/#person`,
+          },
+          inLanguage: "es-ES",
+        },
+        // Proyectos como SoftwareApplication
+        ...projects.map((project, index) => ({
+          "@type": "SoftwareApplication",
+          "@id": `${siteUrl}#project-${index}`,
+          name: project.title,
+          description: project.description,
+          url: project.link,
+          image: project.image,
+          applicationCategory: "WebApplication",
+          operatingSystem: "Any",
+        })),
+      ],
+    };
+
     const script = document.createElement("script");
     script.type = "application/ld+json";
     script.text = JSON.stringify(structuredData);
     document.head.appendChild(script);
+
+    // Meta tags optimizados para Open Graph
     const metaTags = [
       // Meta tags básicos
       {
         name: "title",
-        content: "Geovanni Casanova | Desarrollador Full Stack",
+        content: baseConfig.title,
       },
       {
         name: "description",
-        content:
-          "Desarrollador Full Stack especializado en React, Angular y tecnologías modernas. Experiencia en desarrollo web, aplicaciones móviles y soluciones empresariales.",
+        content: baseConfig.description,
       },
-      // Open Graph / Facebook
+      {
+        name: "keywords",
+        content:
+          "desarrollador full stack, react developer, angular developer, node.js, typescript, postgresql, frontend, backend, méxico, yucatán, mérida, web developer, geovanni casanova",
+      },
+
+      // Open Graph / Facebook - OPTIMIZADO
       {
         property: "og:type",
         content: "website",
@@ -58,16 +110,33 @@ const Head = () => {
       },
       {
         property: "og:title",
-        content: "Geovanni Casanova | Desarrollador Full Stack",
+        content: baseConfig.title,
       },
       {
         property: "og:description",
-        content:
-          "Portafolio profesional mostrando proyectos innovadores en desarrollo web y móvil. Especializado en React, Angular y tecnologías modernas.",
+        content: baseConfig.description,
       },
       {
+        property: "og:site_name",
+        content: "Geovanni Casanova Portfolio",
+      },
+      {
+        property: "og:locale",
+        content: "es_MX",
+      },
+
+      // Imágenes Open Graph - MEJORADO
+      {
         property: "og:image",
-        content: defaultImage,
+        content: ogImage,
+      },
+      {
+        property: "og:image:secure_url",
+        content: ogImage,
+      },
+      {
+        property: "og:image:type",
+        content: "image/png",
       },
       {
         property: "og:image:width",
@@ -77,7 +146,13 @@ const Head = () => {
         property: "og:image:height",
         content: "630",
       },
-      // Twitter
+      {
+        property: "og:image:alt",
+        content:
+          "Geovanni Casanova - Desarrollador Full Stack | React, Angular, Node.js",
+      },
+
+      // Twitter Card - OPTIMIZADO
       {
         name: "twitter:card",
         content: "summary_large_image",
@@ -88,38 +163,21 @@ const Head = () => {
       },
       {
         name: "twitter:title",
-        content: "Geovanni Casanova | Full Stack Developer",
+        content: baseConfig.title,
       },
       {
         name: "twitter:description",
-        content:
-          "Desarrollador Full Stack con experiencia en React, Angular y desarrollo web moderno. Descubre mis proyectos y habilidades.",
+        content: baseConfig.description,
       },
       {
         name: "twitter:image",
-        content: defaultImage,
+        content: ogImage,
       },
       {
-        property: "og:site_name",
-        content: "Geovanni Casanova Portfolio",
+        name: "twitter:image:alt",
+        content: "Geovanni Casanova - Portfolio Profesional",
       },
-      {
-        property: "og:locale",
-        content: "es_ES",
-      },
-      {
-        property: "og:image:alt",
-        content: "Geovanni Casanova - Desarrollador Full Stack",
-      },
-      // WhatsApp específicos (aunque WhatsApp usa Open Graph, estos ayudan a asegurar compatibilidad)
-      {
-        property: "og:image:secure_url",
-        content: defaultImage,
-      },
-      {
-        property: "og:image:type",
-        content: "image/png",
-      },
+
       // Meta tags adicionales
       {
         name: "theme-color",
@@ -137,120 +195,19 @@ const Head = () => {
         name: "author",
         content: "Geovanni Casanova",
       },
+
+      // Geo tags (México, Yucatán)
       {
-        name: "keywords",
-        content:
-          "desarrollo web, frontend, backend, react, angular, full stack, méxico, yucatán, mérida, desarrollador web, programador",
+        name: "geo.region",
+        content: "MX-YUC",
       },
-      // Verificación de sitio web (reemplaza con tus propios códigos de verificación)
       {
-        name: "google-site-verification",
-        content: "tu-código-de-verificación-de-google",
+        name: "geo.placename",
+        content: "Mérida",
       },
     ];
-    const schema = {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Person",
-          "@id": `${siteUrl}/#person`,
-          name: "Geovanni Casanova",
-          jobTitle: "Desarrollador Full Stack",
-          description: baseConfig.description,
-          image: `${siteUrl}/profile.jpg`,
-          sameAs: [
-            "https://github.com/GeovanniCasanova",
-            "https://www.linkedin.com/in/geovanni-casanova-b03a15227/",
-          ],
-          worksFor: {
-            "@type": "Organization",
-            name: "31rooms",
-          },
-          knowsAbout: [
-            "React",
-            "Angular",
-            "Node.js",
-            "TypeScript",
-            "Full Stack Development",
-          ],
-          // Agregar habilidades específicas
-          hasOccupation: {
-            "@type": "Occupation",
-            name: "Full Stack Developer",
-            skills: [
-              "React",
-              "Angular",
-              "Node.js",
-              "AWS",
-              "Digital Ocean",
-              "TypeScript",
-            ],
-          },
-          // Agregar portafolio como CreativeWork
-          mainEntityOfPage: {
-            "@type": "CreativeWork",
-            "@id": `${siteUrl}/#portfolio`,
-            name: "Portfolio de Desarrollo Full Stack",
-            abstract: "Colección de proyectos y experiencias en desarrollo web",
-          },
-        },
-        // Agregar WorkExperience
-        {
-          "@type": "WorkExperience",
-          "@id": `${siteUrl}/#experience`,
-          jobTitle: "Desarrollador Frontend",
-          employmentType: "Full-time",
-          organization: {
-            "@type": "Organization",
-            name: "31rooms",
-          },
-          startDate: "2024-03",
-        },
-        // Proyecto como SoftwareApplication
-        ...projects.map((project, index) => ({
-          "@type": "SoftwareApplication",
-          "@id": `${siteUrl}#project-${index}`,
-          name: project.title,
-          description: project.description,
-          url: project.link,
-          image: project.image,
-          applicationCategory: "WebApplication",
-          operatingSystem: "Any",
-          offers: {
-            "@type": "Offer",
-            availability: "http://schema.org/InStock",
-            price: "0",
-            priceCurrency: "USD",
-          },
-        })),
-        // Agregar WebSite schema para mejorar SEO
-        {
-          "@type": "WebSite",
-          "@id": `${siteUrl}/#website`,
-          url: siteUrl,
-          name: "Geovanni Casanova | Desarrollador Full Stack",
-          description: baseConfig.description,
-          publisher: {
-            "@id": `${siteUrl}/#person`,
-          },
-          inLanguage: "es-ES",
-        },
-      ],
-    };
 
-    const existingSchema = document.querySelector(
-      'script[type="application/ld+json"]'
-    );
-    if (existingSchema) {
-      existingSchema.remove();
-    }
-
-    const scriptTag = document.createElement("script");
-    scriptTag.type = "application/ld+json";
-    scriptTag.text = JSON.stringify(schema);
-    document.head.appendChild(scriptTag);
-
-    // Limpiar meta tags existentes
+    // Limpiar meta tags existentes (excepto viewport y charset)
     document.querySelectorAll("meta").forEach((tag) => {
       if (tag.name !== "viewport" && tag.charset !== "UTF-8") {
         tag.remove();
@@ -266,15 +223,24 @@ const Head = () => {
       document.head.appendChild(meta);
     });
 
-    // Actualizar el título
-    document.title = "Geovanni Casanova | Desarrollador Full Stack";
+    // Actualizar título
+    document.title = baseConfig.title;
 
-    // Agregar favicon
-    const faviconLink = document.createElement("link");
-    faviconLink.rel = "icon";
-    faviconLink.type = "image/svg+xml";
-    faviconLink.href = "/favicon.svg";
-    document.head.appendChild(faviconLink);
+    // Preload de imagen crítica para performance
+    const preloadLink = document.createElement("link");
+    preloadLink.rel = "preload";
+    preloadLink.as = "image";
+    preloadLink.href = ogImage;
+    document.head.appendChild(preloadLink);
+
+    // Cleanup function
+    return () => {
+      document
+        .querySelectorAll('script[type="application/ld+json"]')
+        .forEach((s) => s.remove());
+      canonical.remove();
+      preloadLink.remove();
+    };
   }, []);
 
   return null;

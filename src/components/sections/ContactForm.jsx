@@ -61,8 +61,7 @@ const ContactForm = () => {
     setStatus("loading");
 
     try {
-      // IMPORTANTE: Reemplaza con tu endpoint de Formspree
-      const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+      const response = await fetch("https://formspree.io/f/xblzkzwg", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -5,8 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- En la sección head de tu index.html -->
-
   <!-- Favicon básico -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
@@ -22,23 +20,30 @@
   <!-- Manifiesto para PWA -->
   <link rel="manifest" href="/site.webmanifest">
 
-  <!-- Open Graph / Facebook -->
+  <!-- Title y Description base (Head.jsx los sobrescribirá) -->
+  <title>Geovanni Casanova | Desarrollador Full Stack</title>
+  <meta name="description"
+    content="Desarrollador Full Stack especializado en React, Angular, Node.js y TypeScript. 5+ años transformando ideas en soluciones digitales escalables.">
+
+  <!-- Open Graph Meta Tags ESTÁTICOS (crítico para SEO inicial) -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://geovannicasanova.github.io/portafolio_personal/">
+  <meta property="og:url" content="https://geovannicasanova.dev">
   <meta property="og:title" content="Geovanni Casanova | Desarrollador Full Stack">
   <meta property="og:description"
-    content="Portafolio profesional mostrando proyectos innovadores en desarrollo web y móvil.">
-  <meta property="og:image"
-    content="https://geovannicasanova.github.io/portafolio_personal/web-app-manifest-512x512.png">
+    content="Desarrollador Full Stack especializado en React, Angular, Node.js y TypeScript. 5+ años transformando ideas en soluciones digitales escalables.">
+  <meta property="og:image" content="https://geovannicasanova.dev/preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:alt" content="Geovanni Casanova - Desarrollador Full Stack">
 
-  <!-- Twitter -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://geovannicasanova.github.io/portafolio_personal/">
-  <meta name="twitter:title" content="Geovanni Casanova | Full Stack Developer">
+  <meta name="twitter:url" content="https://geovannicasanova.dev">
+  <meta name="twitter:title" content="Geovanni Casanova | Desarrollador Full Stack">
   <meta name="twitter:description"
-    content="Desarrollador Full Stack con experiencia en React, Angular y desarrollo web moderno.">
-  <meta name="twitter:image"
-    content="https://geovannicasanova.github.io/portafolio_personal/web-app-manifest-512x512.png">
+    content="Desarrollador Full Stack especializado en React, Angular, Node.js y TypeScript.">
+  <meta name="twitter:image" content="https://geovannicasanova.dev/preview.png">
 
   <!-- Precargar recursos críticos -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,16 +52,16 @@
 
   <!-- Meta tags adicionales -->
   <meta name="theme-color" content="#000000" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="author" content="Geovanni Casanova" />
   <meta name="language" content="Spanish" />
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VSVF4BRPZL"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-VSVF4BRPZL');
   </script>
 </head>
@@ -64,9 +69,6 @@
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
-
-  <!-- Precargar scripts no críticos -->
-  <link rel="prefetch" href="/portafolio_personal/assets/framer-motion.js" as="script" />
 </body>
 
 </html>
