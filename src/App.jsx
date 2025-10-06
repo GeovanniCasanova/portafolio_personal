@@ -1,11 +1,20 @@
 // src/App.jsx
 import { motion } from "framer-motion";
-import { Github, Code, Server, Mail, Cloud, Brain } from "lucide-react";
+import {
+  Github,
+  Code,
+  Server,
+  Mail,
+  Cloud,
+  Brain,
+  Download,
+  Facebook
+} from "lucide-react";
 import "@fontsource/space-grotesk";
 import "@fontsource/inter";
 import { useState } from "react";
 
-// Importar nuevos componentes
+// Componentes existentes
 import ExperienceTimeline from "./components/sections/ExperienceTimeline";
 import EducationSection from "./components/sections/EducationSection";
 import AITools from "./components/sections/AITools";
@@ -15,9 +24,15 @@ import ContactSection from "./components/sections/ContactSection";
 import WhatsAppButton from "./components/common/WhatsAppButton";
 import ProjectCard from "./components/sections/ProjectCard";
 import Head from "./components/layout/Head";
-import { projects } from "./data/projects";
 import BusinessSolutions from "./components/sections/BusinessSolutions";
 import ScrollIndicator from "./components/common/ScrollIndicator";
+
+// NUEVOS COMPONENTES - Agregar estos imports
+import TypingEffect from "./components/common/TypingEffect";
+import HeroStats from "./components/sections/HeroStats";
+import FloatingTechStack from "./components/sections/FloatingTechStack";
+
+import { projects } from "./data/projects";
 
 const Portfolio = () => {
   const [filteredProjects, setFilteredProjects] = useState(projects);
@@ -26,11 +41,12 @@ const Portfolio = () => {
     <>
       <Head />
       <div className="min-h-screen bg-black text-white">
-        {/* Hero Section con Parallax */}
+        {/* Hero Section MEJORADO */}
         <section
           aria-label="Introducción"
           className="relative h-screen overflow-hidden"
         >
+          {/* Background Effects */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-20 animate-gradient"></div>
 
           <div className="absolute inset-0 flex items-center justify-center">
@@ -44,35 +60,101 @@ const Portfolio = () => {
             </div>
           </div>
 
+          {/* Floating Tech Stack - Solo desktop */}
+          <FloatingTechStack />
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="relative container mx-auto px-4 h-full flex items-center"
           >
-            <div className="max-w-3xl">
+            <div className="max-w-4xl">
+              {/* Value Proposition */}
+              <motion.p
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-purple-400 font-medium mb-4 text-lg"
+              >
+                💡 Transformando ideas en soluciones digitales escalables
+              </motion.p>
+
+              {/* Main Title */}
               <h1 className="font-display text-6xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
                 Geovanni Casanova
               </h1>
-              <p className="text-xl md:text-2xl text-gray-300 mb-8">
-                Desarrollador Full Stack
-              </p>
-              <div className="flex space-x-6">
+
+              {/* Typing Effect Subtitle */}
+              <div className="text-xl md:text-3xl text-gray-300 mb-8 h-12">
+                <TypingEffect
+                  texts={[
+                    "Desarrollador Full Stack",
+                    "Especialista Frontend",
+                    "Optimizador de Procesos de Ventas",
+                    "Arquitecto de Soluciones Web",
+                  ]}
+                  className="text-xl md:text-3xl"
+                />
+              </div>
+
+              {/* Stats Section */}
+              <HeroStats />
+
+              {/* CTAs Mejorados */}
+              <div className="flex flex-wrap gap-4 mt-8">
+                {/* Primary CTA con Glow Effect */}
+                <motion.a
+                  href="#projects"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium transition-all duration-300 overflow-hidden"
+                >
+                  <span className="relative z-10 flex items-center gap-2">
+                    <Code className="w-5 h-5" />
+                    Ver Proyectos
+                  </span>
+                  {/* Glow effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-50 blur-xl transition-opacity duration-300" />
+                </motion.a>
+
+                {/* Secondary CTA */}
+                <motion.a
+                  href="/cv-geovanni-casanova.pdf"
+                  download
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-lg font-medium hover:border-purple-500 transition-all duration-300 flex items-center gap-2"
+                >
+                  <Download className="w-5 h-5" />
+                  Descargar CV
+                </motion.a>
+
+                {/* Social Links */}
+                <a
+                  href="https://www.facebook.com/profile.php?id=61575675205768"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 text-gray-300 hover:text-blue-500 transition-colors px-4 py-4"
+                >
+                  <Facebook className="w-6 h-6" />
+                  <span className="hidden md:inline">Facebook</span>
+                </a>
                 <a
                   href="mailto:daniel.casanovac13@gmail.com"
-                  className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
+                  className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors px-4 py-4"
                 >
                   <Mail className="w-6 h-6" />
-                  <span>Contacto</span>
+                  <span className="hidden md:inline">Contacto</span>
                 </a>
                 <a
                   href="https://github.com/GeovanniCasanova"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors"
+                  className="flex items-center space-x-2 text-gray-300 hover:text-white transition-colors px-4 py-4"
                 >
                   <Github className="w-6 h-6" />
-                  <span>GitHub</span>
+                  <span className="hidden md:inline">GitHub</span>
                 </a>
               </div>
             </div>
@@ -90,6 +172,7 @@ const Portfolio = () => {
 
         {/* Projects Section */}
         <section
+          id="projects"
           aria-labelledby="projects-title"
           className="py-32 bg-gradient-to-b from-black to-gray-900"
         >
@@ -217,10 +300,10 @@ const Portfolio = () => {
           </div>
         </section>
 
-        {/* Agregar la nueva sección de contacto */}
+        {/* Contact Section */}
         <ContactSection />
 
-        {/* Botón flotante de compartir */}
+        {/* Floating Buttons */}
         <WhatsAppButton />
         <SocialShare />
       </div>

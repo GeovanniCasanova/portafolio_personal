@@ -1,11 +1,35 @@
 import { motion } from "framer-motion";
-import { Calendar, Server, Code, Database, Network } from "lucide-react";
+import { Calendar, Server, Code, Database, Network, TrendingUp } from "lucide-react";
 
 const ExperienceTimeline = () => {
   const experiences = [
     {
+      company: "Financiera - jc soluciones",
+      period: "Febrero 2025 - Actual",
+      role: "Desarrollador Full Stack & Optimización de Ventas",
+      description: "Desarrollo de soluciones tecnológicas y optimización de procesos comerciales",
+      icon: TrendingUp,
+      achievements: [
+        "Desarrollo de sistema web de solicitudes de crédito para clientes",
+        "Optimización de flujos y procesos del área de ventas",
+        "Implementación de sistema de enlaces personalizados por asesor",
+        "Panel administrativo para control y seguimiento de ventas",
+        "Análisis y mejora continua del proceso comercial",
+        "Gestión de base de datos PostgreSQL y arquitectura backend"
+      ],
+      tech: [
+        "Angular 19",
+        "Tailwind CSS",
+        "Node.js",
+        "Express",
+        "TypeScript",
+        "PostgreSQL"
+      ],
+      color: "orange",
+    },
+    {
       company: "31rooms",
-      period: "Marzo 2024 - Actual",
+      period: "Marzo 2024 - Enero 2025",
       role: "Desarrollador Frontend",
       description: "Desarrollo de aplicaciones frontend modernas y optimizadas",
       icon: Code,
@@ -86,7 +110,7 @@ const ExperienceTimeline = () => {
     {
       title: "Base de Datos",
       icon: Database,
-      skills: ["MySQL", "SQL", "AWS RDS", "Database Management"],
+      skills: ["MySQL", "SQL", "PostgreSQL", "AWS RDS", "Database Management"],
     },
     {
       title: "Redes",
@@ -118,10 +142,10 @@ const ExperienceTimeline = () => {
 
         <div className="relative">
           {/* Timeline line - Desktop */}
-          <div className="hidden md:block absolute left-1/2 h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500" />
+          <div className="hidden md:block absolute left-1/2 h-full w-0.5 bg-gradient-to-b from-orange-500 via-green-500 via-blue-500 via-purple-500 to-pink-500" />
 
           {/* Timeline line - Mobile */}
-          <div className="md:hidden absolute left-8 h-full w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500" />
+          <div className="md:hidden absolute left-8 h-full w-0.5 bg-gradient-to-b from-orange-500 via-green-500 via-blue-500 via-purple-500 to-pink-500" />
 
           {experiences.map((exp, index) => (
             <motion.div

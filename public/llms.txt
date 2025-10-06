@@ -1,0 +1,169 @@
+# Geovanni Casanova - Desarrollador Full Stack
+
+## Información Profesional
+- Nombre: Geovanni Daniel Casanova Cruz
+- Rol: Desarrollador Full Stack & Optimizador de Procesos de Ventas
+- Ubicación: Mérida, Yucatán, México
+- Experiencia: 5+ años en desarrollo web
+- Sitio web: https://geovannicasanova.dev/
+- Portafolio: https://geovannicasanova.dev/
+- Portafolio: https://geovannicasanova.github.io/portafolio_personal/
+
+## Especialización Técnica
+
+### Frontend
+- React, Angular, Next.js, Astro
+- TypeScript, JavaScript ES6+
+- Tailwind CSS, Bootstrap, Framer Motion
+- State Management (Redux, Context API)
+- Responsive Design, Mobile-First
+
+### Backend
+- Node.js, Express
+- PHP
+- API REST Development
+- TypeScript Backend
+
+### Bases de Datos
+- MySQL, SQL
+- PostgreSQL
+- AWS RDS
+- Prisma ORM
+
+### DevOps & Cloud
+- AWS (Amazon Web Services)
+- Digital Ocean
+- DreamHost, HostGator
+- CI/CD, GitHub Actions
+- Docker
+
+### Herramientas IA
+- ChatGPT, Claude, Gemini, LLaMA
+- Integración de IA en desarrollo
+- Automatización de procesos
+
+## Experiencia Profesional
+
+### Actual
+- **Financiera - jc soluciones** (Feb 2025 - Presente)
+  - Desarrollador Full Stack & Optimización de Ventas
+  - Stack: Angular 19, Node.js, TypeScript, PostgreSQL
+  - Sistema de solicitudes de crédito web
+  - Optimización de flujos de ventas
+
+### Anterior
+- **31rooms** (Mar 2024 - Ene 2025)
+  - Desarrollador Frontend
+  - Stack: React, Angular, Tailwind CSS
+  
+- **PC Oriente** (2020 - Mar 2024)
+  - Desarrollador Full Stack
+  - Stack: Angular, Node.js, Next.js, MySQL
+
+## Proyectos Destacados
+
+### SaaS Empresarial
+- **Sysware Digital**: Sistema de gestión digital para negocios
+  - URL: https://sysware-digital.vercel.app
+  - Stack: Next.js, TypeScript, Tailwind, MySQL, Prisma
+  - Features: Menús digitales, gestión multi-negocio, QR codes
+
+### E-Commerce
+- **iMobilMX**: Catálogo especializado en iPhones premium
+  - URL: https://mobilmx.vercel.app/
+  - Stack: Astro, React, TypeScript, Tailwind CSS
+  - Features: SSR, SEO optimizado, WhatsApp integration
+
+### Invitaciones Digitales
+- **Invitación Minecraft**: Experiencia inmersiva temática
+  - URL: https://minecraft-birthday.vercel.app/
+  - Stack: Astro, React 19, Framer Motion, Tailwind v4
+  
+- **Invitación Mexicana - Jeyden**: Diseño vibrante cultural
+  - URL: https://invitacion-jeyden.vercel.app/
+  - Stack: Astro 5.x, React 18, TypeScript, Framer Motion
+
+### Portales Institucionales
+- **CODHEY**: Portal oficial Comisión de Derechos Humanos Yucatán
+  - URL: https://codhey.org/
+  - Stack: Angular, Node.js, MySQL
+  
+- **Yucatan Mid Homes**: Portal inmobiliario
+  - URL: https://yucatanmidhomes.com/
+  - Stack: Angular, Google Maps API, WordPress
+
+### Sistemas de Gestión
+- **MVP Inventario**: Sistema de gestión de inventario moderno
+  - URL: https://mvp-inventario-frontend.vercel.app
+  - Stack: Angular, Tailwind CSS, Node.js, MySQL
+
+- **Oaxaca Miel**: E-commerce productos apícolas
+  - URL: https://oaxacamiel.com/
+  - Stack: Angular, Node.js, MySQL, Stripe
+
+## Áreas de Especialización
+
+### Desarrollo Web
+- Aplicaciones Full Stack escalables
+- SPA (Single Page Applications)
+- SSR (Server-Side Rendering)
+- PWA (Progressive Web Apps)
+
+### E-Commerce & Finanzas
+- Sistemas de pagos (Stripe)
+- Gestión de inventarios
+- Sistemas de crédito y ventas
+- Optimización de procesos comerciales
+
+### Invitaciones Digitales
+- Diseños responsivos personalizados
+- Animaciones avanzadas con Framer Motion
+- Integración multimedia (audio, galerías)
+- Optimización para compartir en redes sociales
+
+### DevOps & Infraestructura
+- Deploy y hosting en múltiples plataformas
+- Configuración de servidores (Digital Ocean, AWS)
+- Gestión de dominios y SSL
+- CI/CD pipelines
+
+## Educación
+
+### Universitaria
+- Ingeniería en Gestión de TI
+- Universidad Mesoamericana de San Agustín (2018-2022)
+- Estado: Titulado
+
+### Formación Continua
+- Diplomado en Inteligencia Artificial Aplicada (CIC-MHC IPICYT, 2024-2025)
+- Certificaciones en Angular, Node.js, Ciberseguridad, Prompt Engineering
+
+## Información de Contacto
+
+### Principal
+- Email: daniel.casanovac13@gmail.com
+- Teléfono: +52 999 132 8933
+- WhatsApp: https://wa.me/529991328933
+
+### Redes Sociales
+- GitHub: https://github.com/GeovanniCasanova
+- LinkedIn: https://www.linkedin.com/in/geovanni-casanova-b03a15227/
+- Facebook: https://www.facebook.com/profile.php?id=61575675205768
+- Instagram: https://www.instagram.com/geovanni_sistemas/
+
+### Disponibilidad
+- Estado: Disponible para proyectos freelance
+- Horario: Zona horaria CST (GMT-6)
+- Idiomas: Español (nativo), Inglés (básico)
+
+## Propuesta de Valor
+"Transformo ideas en soluciones digitales escalables combinando código limpio con visión de negocio. Especializado en desarrollo Full Stack moderno con enfoque en performance, UX y optimización de procesos."
+
+## Palabras Clave
+desarrollador full stack, react developer, angular developer, node.js, typescript, astro, next.js, frontend specialist, backend developer, méxico, yucatán, mérida, web developer, software engineer, e-commerce, invitaciones digitales, sistemas empresariales, optimización ventas, fintech developer
+
+## Metadata
+- Última actualización: Octubre 2025
+- Versión: 1.0
+- Formato: llms.txt
+- Encoding: UTF-8

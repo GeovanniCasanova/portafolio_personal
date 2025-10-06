@@ -1,29 +1,17 @@
+// src/components/sections/ContactSection.jsx
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail, Facebook, MessageSquare } from "lucide-react";
+import ContactForm from "./ContactForm";
 
 const ContactSection = () => {
   const socialLinks = [
-    // {
-    //   name: "Facebook",
-    //   icon: Facebook,
-    //   url: "https://facebook.com/tu.perfil",
-    //   color: "hover:text-blue-500",
-    //   username: "@tucuenta",
-    // },
-    // {
-    //   name: "Instagram",
-    //   icon: Instagram,
-    //   url: "https://instagram.com/daniel.casanova13",
-    //   color: "hover:text-pink-500",
-    //   username: "@daniel.casanova13",
-    // },
-    // {
-    //   name: "WhatsApp",
-    //   icon: MessageCircle,
-    //   url: "https://wa.me/9993568688",
-    //   color: "hover:text-green-500",
-    //   username: "+52 999 356 8688",
-    // },
+    {
+      name: "Facebook Empresarial",
+      icon: Facebook,
+      url: "https://www.facebook.com/profile.php?id=61575675205768",
+      color: "hover:text-blue-500",
+      username: "Geovanni Sistemas",
+    },
     {
       name: "GitHub",
       icon: Github,
@@ -49,6 +37,7 @@ const ContactSection = () => {
 
   return (
     <section
+      id="contact"
       role="contentinfo"
       className="py-24 bg-gradient-to-b from-gray-900 to-black"
     >
@@ -67,7 +56,36 @@ const ContactSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {/* Formulario de Contacto */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-16"
+        >
+          <div className="flex items-center justify-center gap-2 mb-8">
+            <MessageSquare className="w-6 h-6 text-purple-400" />
+            <h3 className="text-2xl font-display font-bold">
+              Envíame un Mensaje
+            </h3>
+          </div>
+          <ContactForm />
+        </motion.div>
+
+        {/* Separador */}
+        <div className="relative my-16">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-800"></div>
+          </div>
+          <div className="relative flex justify-center text-sm">
+            <span className="px-4 bg-gradient-to-b from-gray-900 to-black text-gray-400">
+              O conéctate por redes sociales
+            </span>
+          </div>
+        </div>
+
+        {/* Redes Sociales */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {socialLinks.map((social, index) => (
             <motion.a
               key={index}
@@ -76,7 +94,7 @@ const ContactSection = () => {
               rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
               className="group block p-6 bg-gray-800/50 backdrop-blur-sm rounded-xl hover:bg-gray-800/70 transition-all duration-300"
             >
               <div className="flex items-center gap-4">
@@ -96,20 +114,34 @@ const ContactSection = () => {
           ))}
         </div>
 
-        {/* Call to Action */}
+        {/* CTA Alternativo */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
           className="mt-16 text-center"
         >
-          <a
-            href="mailto:daniel.casanovac13@gmail.com"
-            className="inline-flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 rounded-lg font-medium transition-colors duration-300"
-          >
-            <Mail className="w-5 h-5" />
-            <span>Envíame un mensaje</span>
-          </a>
+          <p className="text-gray-400 mb-4">
+            ¿Prefieres una llamada o WhatsApp?
+          </p>
+          <div className="flex justify-center gap-4">
+            <a
+              href="tel:+529991328933"
+              className="inline-flex items-center gap-2 bg-gray-800/50 hover:bg-gray-800/70 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300"
+            >
+              <Mail className="w-5 h-5" />
+              <span>+52 999 132 8933</span>
+            </a>
+            <a
+              href="https://wa.me/529991328933"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-300"
+            >
+              <MessageSquare className="w-5 h-5" />
+              <span>WhatsApp</span>
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

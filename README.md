@@ -18,17 +18,20 @@ Puedes ver el portafolio en vivo aquí: [https://geovannicasanova.github.io/port
 ## ⚙️ Instalación
 
 1. Clona el repositorio:
+
 ```bash
 git clone https://github.com/GeovanniCasanova/portafolio_personal.git
 cd portafolio_personal
 ```
 
 2. Instala las dependencias:
+
 ```bash
 npm install
 ```
 
 3. Inicia el servidor de desarrollo:
+
 ```bash
 npm run dev
 ```
@@ -36,20 +39,25 @@ npm run dev
 ## 📦 Build y Deploy
 
 ### Build Local
+
 Para crear una build local:
+
 ```bash
 npm run build
 ```
 
 ### Deploy a GitHub Pages
+
 Hay dos maneras de hacer deploy:
 
 1. **Manual**:
+
 ```bash
 npm run deploy
 ```
 
 2. **Automático** (usando GitHub Actions):
+
 - Cada push a la rama `main` activará el deploy automáticamente
 - No se requiere ningún comando adicional
 - El workflow está configurado en `.github/workflows/deploy.yml`
@@ -85,12 +93,27 @@ Para actualizar el portafolio:
 
 1. Realiza tus cambios localmente
 2. Commit y push a la rama main:
+
 ```bash
 git add .
 git commit -m "Descripción de los cambios"
 git push origin main
 ```
+
 3. GitHub Actions se encargará del deploy automáticamente
+
+## 📱 Contacto
+
+- Teléfono: [+52 999 132 8933](tel:+529991328933)
+- Email: [daniel.casanovac13@gmail.com](mailto:daniel.casanovac13@gmail.com)
+- WhatsApp: [Enviar mensaje](https://wa.me/529991328933)
+
+## 🌐 Redes Sociales
+
+- GitHub: [@GeovanniCasanova](https://github.com/GeovanniCasanova)
+- LinkedIn: [Geovanni Casanova](https://www.linkedin.com/in/geovanni-casanova-b03a15227/)
+- Facebook: [Geovanni Sistemas](https://www.facebook.com/profile.php?id=61575675205768)
+- Instagram: [@geovanni_sistemas](https://www.instagram.com/geovanni_sistemas/)
 
 ## 📄 Licencia
 
@@ -98,6 +121,6 @@ MIT License - Siéntete libre de usar este código como inspiración para tu pro
 
 ## 👤 Autor
 
-- Geovanni Daniel Casanova Cruz
-- Email: daniel.casanovac13@gmail.com
-- GitHub: [@GeovanniCasanova](https://github.com/GeovanniCasanova)
+Geovanni Daniel Casanova Cruz
+Desarrollador Full Stack
+Mérida, Yucatán, México
